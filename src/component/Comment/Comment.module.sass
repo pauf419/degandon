@@ -1,0 +1,65 @@
+
+.Comment 
+    display: grid
+    gap: 1rem
+    padding: .5rem 1rem
+    border-left: 3px solid #363636
+    position: relative
+
+    .Ukazator 
+        position: absolute
+        width: 1rem
+        height: 3px
+        background: #363636
+        left: calc(-1rem - 3px)
+        top: calc(50% - 3px)
+
+    .CommentHeader
+        display: flex
+        justify-content: space-between
+
+        .CommentOwner
+            font-style: italic
+
+        .CommentDisplay
+            font-size: 12px
+
+    .RefersContainer
+        display: grid 
+        gap: 1rem
+
+    .ReferTabContainer 
+        display: flex 
+        gap: 1rem
+
+        form
+            width: auto!important
+
+    .CommentReferField 
+        width: 100%
+        gap: 1rem
+        display: flex
+        justify-content: space-between
+
+        div 
+            display: flex
+            gap: 1rem
+
+        button
+            color: #F38C16
+            padding: .2rem
+            font-size: 11px
+            background: transparent!important
+
+@media screen and (max-width: 1000px) 
+    .Comment 
+        padding: 0.2rem .5rem
+
+        .Ukazator 
+            width: .5rem
+            left: calc(-0.5rem - 3px)
+
+        .CommentHeader
+            .CommentDisplay
+                display: none
+    
