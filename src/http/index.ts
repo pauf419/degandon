@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {store} from "../index";
 export const API_URL = `/api`
+export const WEBSOCKET_URL = `http://31.202.157.230:8090`
 
 const $api = axios.create({
     withCredentials: true,
