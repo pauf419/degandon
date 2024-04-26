@@ -5,11 +5,24 @@ const cookieParser = require('cookie-parser')
 const router = require('./router/index')
 const path = require("path")
 const resValidator = require("./middlewares/validator.middleware");
+const http = require('http')
+const { Server } = require("socket.io")
+
 const pool = require('./db/postgress-pool');
 const prescript = require('./utils/prescript');
+const socketContoller = require('./controllers/socket-contoller');
 
 const PORT = process.env.PORT || 5000;
 const app = express()
+const server = http.createServer(app);
+
+const io = new Server(server, {
+    cors: {
+        origin: process.env.CLIENT_URL,
+        methods: ["GET", "POST"]
+    }
+})
+
 
 app.use("/static", express.static(path.join(__dirname, 'static')));
 app.use(express.json());
@@ -28,14 +41,19 @@ if(process.env.NODE_ENV === 'prod') {
         res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'))
     })
 }
+
+io.on('connection', socketContoller.handleSocketConnection);
+
  
 const start = async () => {
     await pool.query(prescript)
     try {
-        app.listen(PORT, () => console.log(`Server started on PORT = ${PORT}`))
+        server.listen(PORT, () => {
+            console.log(`Server started on PORT = ${PORT}`)
+        })
     } catch (e) {
         console.log(e);
     }
-}
+} 
 
 start()
