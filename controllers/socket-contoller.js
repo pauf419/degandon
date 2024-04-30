@@ -1,13 +1,25 @@
 
 class SocketController {
 
+    socketsConnected = 2
 
-    handleSocketConnection(socket) {
+    handleSocketConnection(socket, server) {
 
-        console.log("connected")
+        this.socketsConnected++
+
+        server.emit("nsconn", this.socketsConnected)
+
+        socket.on("vote", (data) => {
+            server.emit("vote", data)
+        })
+
+        socket.on("message", (data) => {
+            server.emit("message", data)
+        })
          
         socket.on("disconnect", () => {
-            console.log("disconnected")
+            this.socketsConnected--
+            server.emit("nsdiss", this.socketsConnected)
         })
     }
 }

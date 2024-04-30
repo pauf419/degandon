@@ -7,10 +7,12 @@ const path = require("path")
 const resValidator = require("./middlewares/validator.middleware");
 const http = require('http')
 const { Server } = require("socket.io")
+const fileupload = require("express-fileupload")
 
 const pool = require('./db/postgress-pool');
 const prescript = require('./utils/prescript');
 const socketContoller = require('./controllers/socket-contoller');
+const SocketComposer = require('./utils/socket-composer');
 
 const PORT = process.env.PORT || 5000;
 const app = express()
@@ -23,7 +25,7 @@ const io = new Server(server, {
     }
 })
 
-
+app.use(fileupload())
 app.use("/static", express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(cookieParser());
@@ -42,8 +44,12 @@ if(process.env.NODE_ENV === 'prod') {
     })
 }
 
-io.on('connection', socketContoller.handleSocketConnection);
+const socketComposer = new SocketComposer()
 
+io.on('connection', socket => {
+    socketContoller.handleSocketConnection(socket, io)
+    socketComposer.updateServer(io)
+});
  
 const start = async () => {
     await pool.query(prescript)
@@ -57,3 +63,5 @@ const start = async () => {
 } 
 
 start()
+
+module.exports = socketComposer

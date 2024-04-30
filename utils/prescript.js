@@ -1,4 +1,4 @@
-
+ 
 const prescript = `
 CREATE TABLE IF NOT EXISTS comment
 (
@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS comment
     refer text COLLATE pg_catalog."default",
     CONSTRAINT comment_pkey PRIMARY KEY (id)
 );
-
 CREATE TABLE IF NOT EXISTS public.visitors
 (
     ip text COLLATE pg_catalog."default",
