@@ -20,6 +20,8 @@ function App() {
     }
   },[])
 
+  console.log(process.env)
+
   useEffect(() => {
     socket.on("nsconn", (data:number) => {
       store.setSocketsg(data)

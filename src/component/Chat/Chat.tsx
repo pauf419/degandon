@@ -16,7 +16,7 @@ const Chat:FC = () => {
     const [message, setMessage] = useState<string>("")
     const [username, setUsername] = useState<string>("")
 
-    const endRef = useRef<HTMLDivElement>(null)
+    const innerRef = useRef<HTMLDivElement>(null)
 
     const sendMessage = async (e:any) => {
         e.preventDefault()
@@ -42,12 +42,13 @@ const Chat:FC = () => {
     }, [socket])
 
     useEffect(() => {
-        endRef.current?.scrollIntoView()
-    }, [messages])
-
-    useEffect(() => {
         loadChatHistory()
     }, [])
+
+    useEffect(() => {
+        const elementScroll = innerRef.current?.scrollHeight
+        if(innerRef) innerRef.current!.scrollTop = elementScroll?elementScroll:100000
+    }, [messages])
 
     return (
         <div className={m.ChatContainer}>
@@ -61,7 +62,7 @@ const Chat:FC = () => {
                     </div>
                 </div>
             </div>
-            <div className={m.ChatBody}>
+            <div className={m.ChatBody} ref={innerRef}>
                 {
                     messages.map((m:IMessage) => {
                         return (
@@ -69,7 +70,6 @@ const Chat:FC = () => {
                         )
                     })
                 }
-                <div ref={endRef}></div>
             </div>
             <form className={m.ChatFooter} onSubmit={sendMessage}>
                 {

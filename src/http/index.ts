@@ -1,10 +1,8 @@
 import axios from 'axios';
-export const API_URL = `/api`
-export const WEBSOCKET_URL = `/`
 
 const $api = axios.create({
     withCredentials: true,
-    baseURL: API_URL
+    baseURL: process.env.REACT_APP_API
 })
 
 $api.interceptors.response.use((config) => {
