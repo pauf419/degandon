@@ -7,9 +7,19 @@ export default class Store {
 
     loading: boolean = false
     username:string = ""
+    voted: boolean = false
+    socketsg: number = 0
+
+    setSocketsg(socketsg:number) {
+        this.socketsg = socketsg
+    }
 
     setLoading(state:boolean) {
         this.loading = state
+    }
+
+    setVoted(state:boolean) {
+        this.voted = state
     }
 
     setUsername(username:string) {

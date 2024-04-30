@@ -1,328 +1,91 @@
-.LoadingWrapper
-    height: 100vh
-    width: 100vw 
+
+.FooterComments
+    width: 100%
     display: grid
-    justify-items: center
-    align-content: center
-    gap: 1rem
+    gap: 2rem
 
+    form 
+        .Username
+            &.Highlight
+                border-bottom: 2px solid #9b5756
 
-.ErrorContainer
-    display: grid
-    justify-content: center
-    justify-items: center
+    .UpdateContainer 
+        button
+            position: relative
 
+            .LoadingActive 
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                display: flex 
+                justify-content: center 
+                align-items: center
+                background: #262626
 
-.RootPageContainer
-    display: flex 
-    flex-direction: column
-    min-height: 100vh
-    max-height: 100vh
-
-    .Blurer 
-        position: fixed 
-        top: 0
-        left: 0
-        background: rgba(0,0,0,.6)
-        backdrop-filter: blur(4px)
-        opacity: 0
-        visibility: hidden
-        transition: .2s all ease
-        height: 100vh
+    form 
         width: 100%
-
-        &.Active 
-            opacity: 1
-            visibility: visible
-
-    .VisitorsModal 
-        position: fixed 
-        top: 0 
-        left: 0
-        background: #262626
-        height: 70vh
-        margin: auto
-        width: 100%
-        display: flex
-        justify-content: center
-        align-items: center
-        opacity: 0
-        visibility: hidden 
-        transition: .2s all ease
-        z-index: 1
-        
-
-        &.Active
-            opacity: 1
-            visibility: visible
-
-        .VisitorsModalContent
-            display: grid
-            gap: .5rem 
-            justify-items: center
-
-            .InputOutline
-                color: #bb8483
-
-                div
-                    margin-bottom: .5rem
-
-                input 
-
-
-                &.Active 
-                    input
-                        border-left: 4px solid #9b5756
-
-            .VisitorsList .VisitorWrapper:nth-child(even) 
-                background: #1c1c1c
-            
-
-            .VisitorsList 
-                padding: 1rem
-                display: grid 
-                gap: 0
-                overflow-y: auto
-                max-height: calc(70vh - 2rem)
-
-
-                .VisitorWrapper
-                    display: flex
-                    gap: 1rem
-                    padding: 1rem
-                    align-items: center
-
-                    .Spacer
-                        background: #fff 
-                        width: 2px 
-                        height: 30px
-
-
-            input, button 
-                background: #1c1c1c
-
-
-
-    .EditCodeContainer 
-        
-        padding: 1rem .5rem
-        padding-top: 1.5rem
-        width: 1140px !important
-        max-width: 100% !important
-        margin: auto 
-        color: #699269
-
-        span 
-            font-family: consolas, sans-serif
-
-
-    .ToolbarFooter 
-        width: 1140px !important
-        max-width: 100% !important
-        margin: auto
-        padding-right: .5rem
-        padding-left: .5rem
         display: flex
         align-items: flex-start
-        justify-content: space-between
+        justify-content: space-around
+        gap: 1rem
+        width: 100%
 
-        .StartBlock 
-            display: flex
-            gap: .5rem
+        input
+            width: 100%
 
-            .SaveBtn 
-                color: #9bcab9
+    .CommentsContainer 
+        display: grid
 
-        .EndBlock
+        .Comment 
             display: grid
-            justify-items: end
-            color: #83898e
+            gap: 1rem
+            padding: 1rem
+            border-left: 5px solid #363636
 
-            div 
-                display: flex 
-                gap: .5rem
-
-        &.Edit 
-            flex-direction: column
-            gap: .5rem
-
-            .EditInps 
-                width: 100%
-                display: flex
-                align-items: flex-end
-                gap: .5rem
-
-                .InputOutline
-                    color: #bb8483
-
-                    div
-                        margin-bottom: .5rem
-
-                    input 
-
-
-                    &.Active 
-                        input
-                            border-left: 4px solid #9b5756
-
-                input 
-                    width: 100%
-            .EditBtns
-                width: 1140px !important
-                max-width: 100% !important
-
-                .DeleteBtn 
-                    color: #e0aeb4
-
+            .CommentHeader
                 display: flex
                 justify-content: space-between
 
-        .FooterInps 
-            display: flex
-            gap: .5rem
+                .CommentOwner
+                    font-style: italic
 
+.Title
+    width: 100% 
+    text-align: center
+    font-size: 25px
+    margin-bottom: 3rem
+    
+.Desc 
+    font-size: 18px
+    padding-bottom: 1rem
 
-.ToolbarWrapper
-    display: flex
-    flex-direction: column
-    flex: 1 0
-    width: 1140px !important
-    max-width: 100% !important
-    padding-right: .5rem
-    padding-left: .5rem
-    margin: .5rem auto
-
-    .Footer
-        display: grid
-        gap: 1rem
-        margin-bottom: 3rem
-
-        .FooterComments
-            width: 100%
-            display: grid
-            gap: 2rem
-
-            form 
-                .Username
-                    &.Highlight
-                        border-bottom: 2px solid #9b5756
-        
-            .UpdateContainer 
-                button
-                    position: relative
-
-                    .LoadingActive 
-                        position: absolute
-                        top: 0
-                        left: 0
-                        width: 100%
-                        height: 100%
-                        display: flex 
-                        justify-content: center 
-                        align-items: center
-                        background: #262626
-
-            form 
-                width: 100%
-                display: flex
-                align-items: flex-start
-                justify-content: space-around
-                gap: 1rem
-                width: 100%
-
-                input
-                    width: 100%
-
-            .CommentsContainer 
-                display: grid
-
-                .Comment 
-                    display: grid
-                    gap: 1rem
-                    padding: 1rem
-                    border-left: 5px solid #363636
-
-                    .CommentHeader
-                        display: flex
-                        justify-content: space-between
-
-                        .CommentOwner
-                            font-style: italic
-
-    .ToolbarHeader
+.ImgLayout 
+    display: grid
+    gap: 1rem
+    margin-bottom: 3rem
+    .Column
         display: flex
-        justify-content: flex-start
-        padding: 1.5rem 0
-        justify-content: space-between
-        align-items: center
-        border-bottom: 1px solid #363636
-
-        .HeaderPromo
-            display: flex
-            align-items: center
-            gap: 1rem
-
-            .HeaderLogo 
-                width: 64px
-                height: 64px
-                display: block
-
-                g
-                    fill: #bdc0c2
-            
-            h1
-                font-size: 20px
-                font-family: consolas
-
-        .HeaderData 
-            display: flex
-            gap: 1rem
-
-            .HeaderLink
-                color: #bdc0c2
-
-
-    .ToolbarContent
-        display: grid
-        flex: 1 0
+        max-height: 50vh
         width: 100%
-        padding: 3rem 0 
+        overflow: hidden
+        gap: 1rem
 
-        .Title
-            width: 100% 
-            text-align: center
-            font-size: 25px
-            margin-bottom: 3rem
-            
-        .Desc 
-            font-size: 18px
-            padding-bottom: 1rem
-
-        .ImgLayout 
-            display: grid
-            gap: 1rem
-            margin-bottom: 3rem
-            .Column
-                display: flex
-                max-height: 50vh
-                width: 100%
-                overflow: hidden
-                gap: 1rem
-
-                img
-                    width: 100%
-
-        .Paragraph 
-            a
-                color: #F38C16
-
-        .TabWrapper
-            opacity: 0
-            transition: .3s all ease
+        img
             width: 100%
 
-            &.TabFocus
-                opacity: 1
+.Paragraph 
+    a
+        color: #F38C16
+
+.TabWrapper
+    opacity: 0
+    transition: .3s all ease
+    width: 100%
+
+    &.TabFocus
+        opacity: 1
 
 
 

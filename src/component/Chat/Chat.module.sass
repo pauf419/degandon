@@ -1,0 +1,52 @@
+
+.ChatContainer 
+    display: grid
+
+    .ChatHeader
+        background: #262626
+        padding: 1rem
+        display: flex
+        justify-content: space-between
+        gap: 1rem
+
+        .StatSegment
+            display: flex
+            gap: 1rem
+        
+            .HeaderStat
+                background: #F38C16
+                color: #262626
+                font-size: 12px
+                padding: .2rem .5rem
+                border-radius: 30px
+
+    .ChatBody 
+        height: 50vh
+        padding: 2rem 0rem
+        overflow-y: scroll
+        display: grid
+        align-content: start
+        justify-items: start
+        gap: 1rem
+
+        &::-webkit-scrollbar 
+            width: 5px
+            
+        &::-webkit-scrollbar-track 
+            
+        &::-webkit-scrollbar-thumb 
+            transition: .2s all ease
+            background: #F38C16
+            
+
+        &::-webkit-scrollbar-thumb:hover 
+            background: #ca6c01
+            
+
+    .ChatFooter
+        display: flex 
+        gap: 1rem
+        width: 100%
+
+        input
+            width: 100%
