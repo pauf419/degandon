@@ -38,6 +38,7 @@ class AuthController {
             res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
             return next(Response.OK(userData, "Successfully logged in"))
         } catch (e) {
+            console.error(e)
             next(e);
         }
     }
