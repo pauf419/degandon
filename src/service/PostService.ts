@@ -1,7 +1,7 @@
 
 import $api from "../http";
 import {Axios, AxiosResponse} from 'axios';
-import { IComment } from "../interface/IComment";
+import { IComment } from "../models/IComment";
 
 export default class PostService {
     static sendComment(username:string, comment:string, refer:string="root"): Promise<AxiosResponse<IComment>> {

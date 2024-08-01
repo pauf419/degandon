@@ -1,22 +1,24 @@
 
 import $api from "../http";
 import {Axios, AxiosResponse} from 'axios';
-import { IComment } from "../interface/IComment";
-import { IChallenge } from "../interface/IChallenge";
-import { IChallenger } from "../interface/IChallenger";
-import { IVote } from "../interface/IVote";
-import { IMessage } from "../interface/IMessage";
+import { IComment } from "../models/IComment";
+import { IChallenge } from "../models/IChallenge";
+import { IChallenger } from "../models/IChallenger";
+import { IVote } from "../models/IVote";
+import { IMessage } from "../models/IMessage";
 
 export default class ChatService {
 
-    static getMessages(): Promise<AxiosResponse<IMessage[]>> {
-        return $api.get<IMessage[]>("/chat")
+    static getMessages(offset:number, cursor:string): Promise<AxiosResponse<IMessage[]>> {
+        return $api.get<IMessage[]>("/chat", {
+            params: {
+                offset,
+                cursor
+            }
+        })
     }
 
-    static createMessage(data:string, username:string): Promise<AxiosResponse<IMessage>> {
-        return $api.post<IMessage>("/chat", {
-            data,
-            username
-        })
+    static getCursor(): Promise<AxiosResponse<string>> {
+        return $api.get<string>("/chat/cursor")
     }
 }

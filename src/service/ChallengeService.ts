@@ -1,10 +1,10 @@
 
 import $api from "../http";
 import {Axios, AxiosResponse} from 'axios';
-import { IComment } from "../interface/IComment";
-import { IChallenge } from "../interface/IChallenge";
-import { IChallenger } from "../interface/IChallenger";
-import { IVote } from "../interface/IVote";
+import { IComment } from "../models/IComment";
+import { IChallenge } from "../models/IChallenge";
+import { IChallenger } from "../models/IChallenger";
+import { IVote } from "../models/IVote";
 
 export default class ChallengeService {
 

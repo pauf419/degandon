@@ -1,0 +1,43 @@
+
+.MessageGroupContainer
+    display: grid
+
+    .MessageGroupHeader
+        display: flex
+        gap: .5rem
+        user-select: none
+        cursor: pointer
+
+        .Pfp
+            .OnlineStatus
+                padding: 4px
+                border: 2px solid #363636
+                border-radius: 42px
+                transition: .2s all ease
+
+                &.Active 
+                    border: 2px solid #00C61C
+
+                img
+                    border-radius: 42px
+                    display: block
+                    width: 42px
+                    height: 42px
+
+
+        .Stats 
+            display: grid
+            font-size: 11px
+            justify-items: start
+            align-content: center
+            gap: .5rem
+            
+            span
+                font-style: italic
+                opacity: .6
+
+    .MessageGroupMessages 
+        display: grid
+        gap: .5rem
+        margin-top: .5rem
+        margin-left: calc(54px + .5rem)

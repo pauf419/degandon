@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap')
+
 .LoadingWrapper
     height: 100vh
     width: 100vw 
@@ -10,7 +12,7 @@
     transform: translateX(100%)
     display: grid
     position: fixed
-    top: 121px
+    top: 77px
     right: 0
     background: #1c1c1c
     z-index: 100
@@ -90,6 +92,7 @@
     flex-direction: column
     min-height: 100vh
     max-height: 100vh
+
 
     .Blurer 
         position: fixed 
@@ -262,7 +265,16 @@
     max-width: 100% !important
     padding-right: .5rem
     padding-left: .5rem
-    margin: .5rem auto
+    margin: auto auto
+    margin-bottom: .5rem
+
+    &.Space
+        .ToolbarContent
+            padding: 0
+            height: 100%
+            display: flex
+            flex: 1 0
+            
 
     .Footer
         display: grid
@@ -330,21 +342,18 @@
         border-bottom: 1px solid #363636
 
         .HeaderPromo
-            display: flex
-            align-items: center
-            gap: 1rem
+            font-family: "Bebas Neue", sans-serif
+            font-size: 24px
+            background: #bdc0c2
+            color: #1c1c1c
+            padding-top: 2px
+            padding-left: 5px
+            padding-right: 5px
+            pointer-events: none
+            cursor: none
+            user-select: none
 
-            .HeaderLogo 
-                width: 64px
-                height: 64px
-                display: block
 
-                g
-                    fill: #bdc0c2
-            
-            h1
-                font-size: 20px
-                font-family: consolas
 
         .HeaderData 
             display: flex
@@ -359,6 +368,8 @@
         flex: 1 0
         width: 100%
         padding: 3rem 0 
+
+
 
         .Title
             width: 100% 
@@ -395,7 +406,6 @@
 
             &.TabFocus
                 opacity: 1
-
 
 
 @media screen and (max-width: 1140px) 

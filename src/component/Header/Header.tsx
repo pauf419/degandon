@@ -10,6 +10,7 @@ const Header = () => {
         <div className={m.ToolbarWrapper}>
             <div className={m.ToolbarHeader}>
                 <img src={logo} className={m.HeaderLogo}/>
+                dsadasd
             </div>
         </div>
     )

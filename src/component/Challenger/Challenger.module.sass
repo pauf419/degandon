@@ -46,51 +46,7 @@
             transition: .2s all ease
 
 
-.BurgerBtn
-    position: absolute
-    right: 0
-    left: 0
-    margin: 0 auto
-    top: 50%
-    transform: translateY(-50%)
-    width: 50px
-    height: 40px
-    cursor: pointer
 
-    span 
-        width: 100%
-        transition: .5s all cubic-bezier(0.175, 0.885, 0.32, 1.275)
-        height: 4px
-        background: red
-        position: absolute
-        right: 0
-        left: 0
-        margin: 0 auto
-        transform: rotate(0)
-
-        &:nth-child(1) 
-            top: 0
-        
-        &:nth-child(2) 
-            top: 44%
-            width: 60%
-        
-        &:nth-child(3) 
-            bottom: 0
-        
-    
-    &.active 
-        span 
-            &:nth-child(1) 
-                top: 18px
-                transform: rotate(-45deg)
-            
-            &:nth-child(2) 
-                width: 0%
-            
-            &:nth-child(3) 
-                bottom: 18px
-                transform: rotate(45deg)
             
         
     

@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from "react";
-import { IComment } from "../../interface/IComment";
+import { IComment } from "../../models/IComment";
 import m from "./Comment.module.sass"
 import { ctx } from "../..";
 

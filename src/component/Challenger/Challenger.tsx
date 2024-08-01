@@ -1,7 +1,7 @@
 
 import { FC, useContext, useEffect, useState } from "react"
 import m from "./Challenger.module.sass"
-import { IChallenger } from "../../interface/IChallenger"
+import { IChallenger } from "../../models/IChallenger"
 import { observer } from "mobx-react-lite"
 import { ctx } from "../.."
 import ChallengeService from "../../service/ChallengeService"

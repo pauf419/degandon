@@ -4,6 +4,12 @@ import { createContext } from 'react';
 import Store from './store';
 import "katex/dist/katex.css";
 
+import { configure } from "mobx"
+
+configure({
+    enforceActions: "never",
+})
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

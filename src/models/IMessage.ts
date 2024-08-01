@@ -1,8 +1,7 @@
 
 export interface IMessage { 
     id:string
-    username:string 
-    data:string 
+    refer:string
     timestamp:string 
-    isadmin:string
+    payload:string
 }
