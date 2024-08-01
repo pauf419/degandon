@@ -13,7 +13,7 @@ module.exports = class Response {
             this.data = model.data 
             this.force = true
             return;
-        }
+        }  
         this.status = model.status ? model.status : 200
         this.msg = model.msg ? model.msg : null
         this.description = model.description ? model.description : null

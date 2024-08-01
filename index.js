@@ -11,15 +11,18 @@ const fileupload = require("express-fileupload")
 
 const pool = require('./db/postgress-pool');
 const prescript = require('./utils/prescript');
-const socketContoller = require('./controllers/socket-contoller');
 const SocketComposer = require('./utils/socket-composer');
+const authMiddleware = require('./middlewares/auth-middleware');
+const wsMiddleware = require('./middlewares/ws-middleware');
+const ssMiddleware = require("./middlewares/ss.middleware");
+const socketController = require('./controllers/socket-contoller');
 
 const PORT = process.env.PORT || 5000;
 const app = express()
 const server = http.createServer(app);
 
 const io = new Server(server, {
-    cors: {
+    cors: { 
         origin: process.env.CLIENT_URL,
         methods: ["GET", "POST"]
     }
@@ -30,7 +33,7 @@ app.use("/static", express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ 
-    credentials: true,
+    credentials: true, 
     origin: process.env.CLIENT_URL
 }));
 app.use('/api', router);
@@ -44,11 +47,10 @@ if(process.env.NODE_ENV === 'prod') {
     })
 }
 
-const socketComposer = new SocketComposer()
+io.use(ssMiddleware)
 
 io.on('connection', socket => {
-    socketContoller.handleSocketConnection(socket, io)
-    socketComposer.updateServer(io)
+    socketController.handleSocketConnection(socket, io)
 });
  
 const start = async () => {
@@ -63,5 +65,3 @@ const start = async () => {
 } 
 
 start()
-
-module.exports = socketComposer

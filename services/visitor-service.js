@@ -6,4 +6,4 @@ class VisitorService {
     }   
 }
 
-module.exports = new VisitorService()
+module.exports = new VisitorService() 

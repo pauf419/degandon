@@ -17,7 +17,20 @@ class ChatController {
 
     async getMessages(req, res, next) {
         try {
-            const res = await chatService.getMessages()
+            const {offset, cursor} = req.query
+            var res;
+            if(!logic.regexobject({offset, cursor})) res = await chatService.getMessageChunk(offset, cursor)
+            else res = await chatService.getMessages()
+            return next(res)
+        } catch(e) {
+            console.error(e) 
+            next(e)
+        }
+    }
+
+    async getMessageCursor(req, res, next) {
+        try {
+            const res = await chatService.getMessageCursor()
             return next(res)
         } catch(e) {
             console.error(e) 
