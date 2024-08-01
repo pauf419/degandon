@@ -3,7 +3,7 @@ import { store } from "..";
 
 export var socket
 
-export const server = "http://localhost:5000"
+export const server = process.env.REACT_APP_WEBSOCKET || process.env.WEBSOCKET
 
 export const connect = () => {
 
